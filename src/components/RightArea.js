@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import PieChart from "./PieChart";
 import { Button } from "@mui/material";
 import Loading from "./Loading";
+import Link from "next/link";
 
 const RightArea = () => {
   const loading = useSelector((store) => store.sale.isLoading);
@@ -48,7 +49,9 @@ const RightArea = () => {
       {pending.length ? <PieChart data={chartData} /> : <Loading />}
       {pending.length ? (
         <Button variant="contained" sx={{ marginTop: "50px" }}>
-          Login
+          <Link href={"https://muul-backend.onrender.com/api-docs/"}>
+            Login
+          </Link>
         </Button>
       ) : (
         <div className="bg-[#CCD3CA] w-full h-10 rounded-md"></div>
