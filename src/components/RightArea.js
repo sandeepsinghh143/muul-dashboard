@@ -50,7 +50,7 @@ const RightArea = () => {
       {pending.length ? (
         <Button variant="contained" sx={{ marginTop: "50px" }}>
           <Link href={"https://muul-backend.onrender.com/api-docs/"}>
-            Login
+            API dOCS
           </Link>
         </Button>
       ) : (
