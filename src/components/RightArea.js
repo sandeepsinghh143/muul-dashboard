@@ -49,7 +49,7 @@ const RightArea = () => {
       {pending.length ? <PieChart data={chartData} /> : <Loading />}
       {pending.length ? (
         <Button variant="contained" sx={{ marginTop: "50px" }}>
-          <Link href={"https://muul-backend.onrender.com/api-docs/"}>
+          <Link href={"https://muul-backend.vercel.app/api-docs/"}>
             API dOCS
           </Link>
         </Button>

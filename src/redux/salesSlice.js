@@ -1,9 +1,7 @@
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 export const fetchSales = createAsyncThunk("fetchSales", async () => {
-  const res = await fetch(
-    `https://muul-backend.onrender.com/sale/get-all-sales`
-  );
+  const res = await fetch(`https://muul-backend.vercel.app/sale/get-all-sales`);
   const data = await res.json();
   return data;
 });
