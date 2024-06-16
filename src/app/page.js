@@ -8,14 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const loading = useSelector((store) => store.sale.isLoading);
 
   useEffect(() => {
     dispatch(fetchSales());
   }, []);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="w-full lg:w-[calc(100vw-270px)] lg:ml-[250px]">

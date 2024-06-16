@@ -3,7 +3,7 @@ import React from "react";
 import Drawer from "@mui/material/Drawer";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDrawer } from "@/redux/drawerSlice";
-import NavbarContent from "./NavbarContent";
+import SidebarContent from "./SidebarContent";
 
 export default function MobileDrawer() {
   const open = useSelector((store) => store.drawer.open);
@@ -11,7 +11,7 @@ export default function MobileDrawer() {
 
   return (
     <Drawer open={open} onClose={() => dispatch(toggleDrawer(false))}>
-      <NavbarContent />
+      <SidebarContent />
     </Drawer>
   );
 }

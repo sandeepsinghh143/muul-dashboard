@@ -2,8 +2,7 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 export const fetchSales = createAsyncThunk("fetchSales", async () => {
   const res = await fetch(`https://muul-backend.vercel.app/sale/get-all-sales`);
-  const data = await res.json();
-  return data;
+  return res.json();
 });
 
 const saleSlice = createSlice({
@@ -25,6 +24,7 @@ const saleSlice = createSlice({
     builder.addCase(fetchSales.rejected, (state, action) => {
       state.isError = true;
       state.isLoading = false;
+      state.data = [];
     });
   },
 });

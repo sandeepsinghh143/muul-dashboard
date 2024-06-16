@@ -11,7 +11,7 @@ import { lowerList, upperList } from "@/data/SidebarItems";
 import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/redux/drawerSlice";
 
-const NavbarContent = () => {
+const SidebarContent = () => {
   const dispatch = useDispatch();
   return (
     <Box
@@ -55,4 +55,4 @@ const NavbarContent = () => {
   );
 };
 
-export default NavbarContent;
+export default SidebarContent;

@@ -1,15 +1,13 @@
 import drawerSlice from "./drawerSlice";
 import salesSlice from "./salesSlice";
 
-const { configureStore, combineReducers } = require("@reduxjs/toolkit");
-
-const rootReducer = combineReducers({
-  drawer: drawerSlice,
-  sale: salesSlice,
-});
+const { configureStore } = require("@reduxjs/toolkit");
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    drawer: drawerSlice,
+    sale: salesSlice,
+  },
 });
 
 export default store;

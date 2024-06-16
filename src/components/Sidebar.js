@@ -1,10 +1,10 @@
 import React from "react";
 
-import NavbarContent from "./NavbarContent";
+import SidebarContent from "./SidebarContent";
 export default function Sidebar() {
   return (
     <div className="hidden lg:block mt-16 fixed">
-      <NavbarContent />
+      <SidebarContent />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { Paper } from "@mui/material";
 import React from "react";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import SwapVerticalCircleIcon from "@mui/icons-material/SwapVerticalCircle";
@@ -34,9 +33,9 @@ const Card = ({ test, totalSales, totalVolume }) => {
         </div>
         <div>
           {test == "sales"
-            ? totalSales || 50
+            ? totalSales
             : test == "volume"
-            ? "$ " + (totalVolume || 500000)
+            ? "$ " + totalVolume
             : ""}
         </div>
       </div>

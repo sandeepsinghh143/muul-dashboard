@@ -20,6 +20,7 @@ import { useDispatch } from "react-redux";
 import { toggleDrawer } from "@/redux/drawerSlice";
 import logo from "../../public/logo.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -103,8 +104,12 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link href={"/profile"}>Profile</Link>
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link href={"/"}>My account</Link>
+      </MenuItem>
     </Menu>
   );
 

@@ -1,30 +1,28 @@
 import React from "react";
-import Card from "./Card";
+// import Card from "./Card";
+const Card = dynamic(() => import("./Card"));
 import { useSelector } from "react-redux";
 import { LineChart } from "./LineChart";
+import dynamic from "next/dynamic";
 import CardLoading from "./CardLoading";
-import ChartLoading from "./ChartLoading,";
 
 const LeftArea = () => {
   const sales = useSelector((store) => store?.sale?.data.data);
-  const loading = useSelector((store) => store.sale.isLoading);
 
   const totalSales =
-    sales &&
-    sales.length > 0 &&
-    sales.reduce((total, current) => total + current.quantity, 0);
+    (sales &&
+      sales.length > 0 &&
+      sales.reduce((total, current) => total + current.quantity, 0)) ||
+    0;
 
   const totalVolume =
-    sales &&
-    sales.length > 0 &&
-    sales.reduce(
-      (total, current) => total + current.quantity * current.price,
-      0
-    );
-
-  if (loading) {
-    return <div>Loading.....</div>;
-  }
+    (sales &&
+      sales.length > 0 &&
+      sales.reduce(
+        (total, current) => total + current.quantity * current.price,
+        0
+      )) ||
+    0;
 
   return (
     <div className="lg:w-[70%] w-full p-4">
@@ -40,7 +38,11 @@ const LeftArea = () => {
           <CardLoading />
         )}
       </div>
-      {sales ? <LineChart /> : <ChartLoading />}
+      {totalSales ? (
+        <LineChart />
+      ) : (
+        <div className="skeleton h-96 w-full"></div>
+      )}
     </div>
   );
 };

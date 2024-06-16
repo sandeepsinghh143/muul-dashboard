@@ -2,11 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import PieChart from "./PieChart";
 import { Button } from "@mui/material";
-import Loading from "./Loading";
 import Link from "next/link";
 
 const RightArea = () => {
-  const loading = useSelector((store) => store.sale.isLoading);
   const data = useSelector((store) => store.sale.data.data);
   const pending = data ? data.filter((item) => item.status === "Pending") : [];
   const completed = data
@@ -16,7 +14,6 @@ const RightArea = () => {
     ? data.filter((item) => item.status === "Cancelled")
     : [];
 
-  console.log(pending, completed, cancelled);
   const chartData = {
     labels: ["Pending", "Completed", "Cancelled"],
     datasets: [
@@ -41,12 +38,13 @@ const RightArea = () => {
       },
     ],
   };
-  // if (loading) {
-  //   return <div>Loading.....</div>;
-  // }
   return (
     <div className="lg:w-[30%] w-full p-4 flex flex-col justify-between">
-      {pending.length ? <PieChart data={chartData} /> : <Loading />}
+      {pending.length ? (
+        <PieChart data={chartData} />
+      ) : (
+        <div className="skeleton w-full h-[57vh]"></div>
+      )}
       {pending.length ? (
         <Button variant="contained" sx={{ marginTop: "50px" }}>
           <Link href={"https://muul-backend.vercel.app/api-docs/"}>
@@ -54,7 +52,7 @@ const RightArea = () => {
           </Link>
         </Button>
       ) : (
-        <div className="bg-[#CCD3CA] w-full h-10 rounded-md"></div>
+        <div className="skeleton h-10 w-full"></div>
       )}
     </div>
   );
